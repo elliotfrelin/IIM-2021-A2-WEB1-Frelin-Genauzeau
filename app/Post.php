@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vgena
- * Date: 22/12/2017
- * Time: 22:49
- */
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
