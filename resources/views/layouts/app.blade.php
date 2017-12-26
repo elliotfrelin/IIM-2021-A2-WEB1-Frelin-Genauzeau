@@ -78,6 +78,15 @@
     </nav>
 
     @yield('content')
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 author">
+                    <p class="text-center">Project realized by Valentin Genauzeau and Elliot frelin.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
 <!-- Scripts -->

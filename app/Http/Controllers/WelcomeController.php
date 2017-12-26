@@ -6,8 +6,8 @@ class WelcomeController extends Controller
 {
     public function welcome()
     {
-        $prenom = 'Valentin';
-        $nom = 'Genauzeau';
+        //  $name1 = 'Valentin Genauzeau';
+        //  $name2 = 'Elliot Frelin';
 
 
         //    return view('welcome', [
@@ -15,6 +15,6 @@ class WelcomeController extends Controller
         //        'nom'    => $nom,
         //    ]);
 
-        return view('welcome', compact('prenom', 'nom'));
+        return view('welcome');
     }
 }
