@@ -77,6 +77,30 @@
         </div>
     </nav>
 
+    @if(session('success'))
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="alert alert-success text-center">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="alert alert-danger text-center">
+                        {{ session('error') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     @yield('content')
     <footer class="footer">
         <div class="container">
