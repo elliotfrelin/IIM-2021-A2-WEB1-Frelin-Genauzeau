@@ -17,6 +17,12 @@ Route::get('mes-articles', 'WelcomeController@welcome');
 Route::resource('/blog', 'BlogController');
 Auth::routes();
 
+Route::group['middleware' => ['web']], function ()
+{
+
+}
+Route::resource('comments', 'CommentsController');
+
 Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
 
 Route::get('/home', 'HomeController@index')->name('home');
