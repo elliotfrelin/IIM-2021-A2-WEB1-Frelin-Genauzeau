@@ -47,8 +47,6 @@
                                                    name="remember" {{ old('remember') ? 'checked' : '' }}> Keep me
                                             logged in
                                         </label>
-                                        <a class="btn btn-link col-md-offset-5" href="{{ route('password.request') }}">Forgot
-                                            password ?</a>
                                     </div>
                                 </div>
                             </div>

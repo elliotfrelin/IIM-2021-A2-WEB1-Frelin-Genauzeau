@@ -39,11 +39,12 @@ class RegisteredUser extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-    {
+    {                                                                               
         return (new MailMessage)
+            ->success()
             ->subject('Registration Mail')
             ->line('Your account has been created but needs to be confirmed. Please click on the following link.')
-            ->action('Confirm my account', url("/confirm/{$notifiable->id}/{$notifiable->confirmation_token}"))
+            ->action('Confirm my account', url("/confirm/{$notifiable->id}/" . urlencode($notifiable->confirmation_token)))
             ->line('If you\'re not the originator of this email, please call the police as soon as possible !');
     }
 

@@ -42,6 +42,18 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function confirm($id, $token)
+    {
+        $user = User::where('id', $id)->where('confirmation_token', $token)->first();
+        if ($user) {
+           $user->update(['confirmation_token' => null]);
+           $this->guard()->login($user);
+           return redirect($this->redirectPath())->with('success', 'Your account has been confirmed');
+        } else {
+            return redirect('/login')->with('error', 'This link no longer appears valid');
+        }
+    }
+
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -78,7 +90,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'confirmation_token' => bcrypt(str_random(16))
+            'confirmation_token' => str_replace('/', '', bcrypt(str_random(16)))
         ]);
     }
 }
