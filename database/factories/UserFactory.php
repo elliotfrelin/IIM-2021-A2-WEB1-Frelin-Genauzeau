@@ -23,3 +23,18 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\App\Comment::class, function (\Faker\Generator $faker) {
+    return [
+        'username' => $faker->userName,
+        'email' => $faker->email,
+        'content' => $faker->sentence,
+        'ip' => $faker->ipv4
+    ];
+});
+
+$factory->define(\App\PostComment::class, function (\Faker\Generator $faker) {
+    return [
+        'name' => $faker->name
+    ];
+});
