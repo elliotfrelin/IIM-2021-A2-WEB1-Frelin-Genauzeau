@@ -55,7 +55,7 @@ return [
         ],
 
         'testing' => [
-            'driver' => 'sqlite',
+            'driver' => 'mysql',
             'database' => ':memory:',
             'prefix' => '',
         ],
